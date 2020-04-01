@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'artists#index'
   resources :artists, :songs
 
+  get "bootstrap", to: "artists#bootstrap"
+
   # get 'artists', to: 'artists#index'
   # get "artists/:id", to: "artists#show", as: :artist
 end
