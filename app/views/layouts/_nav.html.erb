@@ -11,6 +11,23 @@
             <li class="nav-item active">
                 <%= link_to('New artist', new_artist_path, class: 'nav-item nav-link active') %>
             </li>
+
+            <% if user_signed_in? %>
+            <li class="nav-item active">
+                <%= link_to(current_user.email, "#", class: 'nav-item nav-link disabled') %>
+            </li>
+            <li>
+                <%= link_to('Sign Out', destroy_user_session_path, method: :delete ,class: 'nav-item nav-link active') %>
+            </li>
+            <% else %>
+            <li>
+                <%= link_to('Sign In', new_user_session_path, class: 'nav-item nav-link active') %>
+            </li>
+            <li>
+                <%= link_to('Sign Up', new_user_registration_path, class: 'nav-item nav-link active') %>
+            </li>
+            <% end %>
+
         </ul>
         <form class="form-inline mt-2 mt-md-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
